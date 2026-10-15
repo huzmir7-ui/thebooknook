@@ -1,0 +1,1153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Reading Room</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --cream: #f8f3eb;
+  --paper: #fffdf9;
+  --wine: #722f3e;
+  --wine-dark: #4b202b;
+  --rose: #ead4d4;
+  --ink: #33272a;
+  --muted: #897a7a;
+  --border: #e9dfd7;
+  --gold: #c49a51;
+  --green: #627b65;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  background: var(--wine-dark);
+  color: #fff8f0;
+  padding: 24px 7%;
+}
+
+.nav {
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 27px;
+  letter-spacing: .3px;
+}
+
+.brand span {
+  color: #e9c7bc;
+}
+
+.nav-note {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: .8;
+}
+
+.hero {
+  background:
+    radial-gradient(ellipse at 85% 20%, #965c65 0%, transparent 35%),
+    linear-gradient(125deg, #4b202b, #793c49);
+  color: #fff8f0;
+  padding: 68px 7% 74px;
+}
+
+.hero-inner {
+  max-width: 1250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  color: #e9c7bc;
+  font-weight: 700;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1.08;
+  margin: 18px 0;
+  max-width: 650px;
+}
+
+.hero p {
+  color: #eadbd7;
+  max-width: 470px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.hero-quote {
+  justify-self: end;
+  max-width: 320px;
+  padding: 28px;
+  border: 1px solid #ffffff3b;
+  background: #ffffff0b;
+  border-radius: 4px;
+}
+
+.quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 58px;
+  color: #e9c7bc;
+  line-height: .8;
+}
+
+.hero-quote p {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #fff8f0;
+  margin: 18px 0;
+}
+
+.hero-quote small {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e9c7bc;
+  font-size: 10px;
+}
+
+main {
+  max-width: 1250px;
+  padding: 40px 24px 70px;
+  margin: auto;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.stat {
+  padding: 21px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--muted);
+}
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: var(--wine);
+  margin-top: 9px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.toolbar input,
+.toolbar select {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  border-radius: 6px;
+  color: var(--ink);
+  outline: none;
+}
+
+.toolbar input {
+  flex: 1;
+  min-width: 180px;
+}
+
+.toolbar input:focus,
+.toolbar select:focus,
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--wine);
+  box-shadow: 0 0 0 3px #722f3e12;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 12px 17px;
+  font-weight: 600;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: var(--wine);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--wine-dark);
+  transform: translateY(-1px);
+}
+
+.btn-light {
+  background: #efe5df;
+  color: var(--wine-dark);
+}
+
+.btn-light:hover {
+  background: var(--rose);
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.book-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+  min-width: 0;
+}
+
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px #4b202b0d;
+}
+
+.book-top {
+  padding: 20px 20px 14px;
+  display: flex;
+  gap: 16px;
+  min-height: 178px;
+}
+
+.cover {
+  width: 100px;
+  height: 145px;
+  flex-shrink: 0;
+  background: linear-gradient(145deg, #783a48, #3f202b);
+  color: #fff7ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 3px 6px 6px 3px;
+  box-shadow: 4px 5px 0 #e8ddd4;
+  overflow: hidden;
+  position: relative;
+}
+
+.cover::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #ffffff55;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.book-info {
+  min-width: 0;
+  padding-top: 5px;
+}
+
+.book-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  line-height: 1.3;
+  margin-bottom: 7px;
+  overflow-wrap: anywhere;
+}
+
+.author {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 13px;
+  overflow-wrap: anywhere;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 9px;
+  border-radius: 30px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  background: #eee8df;
+  color: #6e5d4e;
+}
+
+.status.finished {
+  background: #e3ece1;
+  color: #426345;
+}
+
+.status.current {
+  background: #f3e6d0;
+  color: #8a6124;
+}
+
+.status.want {
+  background: #f0e2e9;
+  color: #8b4966;
+}
+
+.book-details {
+  border-top: 1px solid var(--border);
+  padding: 15px 20px 18px;
+}
+
+.book-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.rating {
+  color: var(--gold);
+  letter-spacing: 1px;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.genre {
+  font-size: 10px;
+  color: var(--wine);
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.review {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #655458;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 9px;
+  font-size: 11px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 65px 20px;
+  background: var(--paper);
+  border: 1px dashed #d7c5bd;
+  border-radius: 8px;
+}
+
+.empty-icon {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.empty-state h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.empty-state p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+dialog {
+  width: min(600px, calc(100% - 24px));
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 25px 100px #1b0b0b45;
+}
+
+dialog::backdrop {
+  background: #211316a6;
+  backdrop-filter: blur(3px);
+}
+
+.modal-head {
+  padding: 23px 25px;
+  background: #f3e8e1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.modal-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 26px;
+  margin: 0;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 25px;
+  color: var(--wine);
+}
+
+form {
+  padding: 25px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 17px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #655458;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 11px 12px;
+  background: #fffefa;
+  color: var(--ink);
+  outline: none;
+}
+
+.field textarea {
+  min-height: 115px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+footer {
+  text-align: center;
+  padding: 28px 20px;
+  background: var(--wine-dark);
+  color: #e9d8d5;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+footer strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: white;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-quote {
+    justify-self: start;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px;
+  }
+
+  .brand {
+    font-size: 22px;
+  }
+
+  .nav-note {
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-align: right;
+  }
+
+  .hero {
+    padding: 48px 22px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  main {
+    padding: 30px 15px 45px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .stat {
+    padding: 15px;
+  }
+
+  .stat-number {
+    font-size: 29px;
+  }
+
+  .section-heading {
+    align-items: start;
+  }
+
+  .section-heading h2 {
+    font-size: 25px;
+  }
+
+  .section-heading p {
+    line-height: 1.5;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-top {
+    min-height: 165px;
+  }
+
+  .cover {
+    width: 105px;
+    height: 140px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  form {
+    padding: 18px;
+  }
+
+  .modal-head {
+    padding: 18px;
+  }
+
+  .toolbar select {
+    flex: 1;
+    min-width: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">The <span>Reading</span> Room</div>
+    <div class="nav-note">A little home for every story</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Your personal book journal</div>
+      <h1>Some stories stay with us forever.</h1>
+      <p>
+        Keep track of the worlds you've visited, the characters you've loved,
+        and the words that found a home in your heart.
+      </p>
+      <button class="btn btn-light" onclick="openAddForm()">
+        + Add a book to your shelf
+      </button>
+    </div>
+
+    <div class="hero-quote">
+      <div class="quote-mark">“</div>
+      <p>A reader lives a thousand lives before he dies.</p>
+      <small>— A book lover's corner</small>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="section-heading">
+    <div>
+      <h2>Your bookshelf</h2>
+      <p>Every book has a story. This is where yours lives.</p>
+    </div>
+  </div>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="stat-label">Books collected</div>
+      <div class="stat-number" id="totalBooks">0</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-label">Books finished</div>
+      <div class="stat-number" id="finishedBooks">0</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-label">Currently reading</div>
+      <div class="stat-number" id="currentBooks">0</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-label">Average rating</div>
+      <div class="stat-number" id="averageRating">—</div>
+    </div>
+  </section>
+
+  <div class="section-heading">
+    <div>
+      <h2>The collection</h2>
+      <p id="collectionCount">Your books will appear here.</p>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Search title, author, genre or review..."
+      oninput="renderBooks()"
+      aria-label="Search books"
+    >
+
+    <select id="statusFilter" onchange="renderBooks()" aria-label="Filter by status">
+      <option value="all">All statuses</option>
+      <option value="Finished">Finished</option>
+      <option value="Currently reading">Currently reading</option>
+      <option value="Want to read">Want to read</option>
+    </select>
+
+    <select id="sortSelect" onchange="renderBooks()" aria-label="Sort books">
+      <option value="recent">Recently added</option>
+      <option value="title">Title: A–Z</option>
+      <option value="rating">Highest rated</option>
+    </select>
+
+    <button class="btn btn-primary" onclick="openAddForm()">+ Add book</button>
+  </div>
+
+  <section class="book-grid" id="bookGrid"></section>
+</main>
+
+<footer>
+  <strong>The Reading Room</strong>
+  <br>
+  A quiet corner for the books you love and the feelings they leave behind.
+  <br>
+  Your collection is saved in this browser.
+  <br>
+  <button class="btn btn-light" style="margin-top:14px" onclick="exportBooks()">
+    Export backup
+  </button>
+</footer>
+
+<dialog id="bookDialog">
+  <div class="modal-head">
+    <h2 id="dialogTitle">Add a new book</h2>
+    <button class="close-btn" type="button" onclick="closeForm()" aria-label="Close">×</button>
+  </div>
+
+  <form id="bookForm">
+    <input type="hidden" id="bookId">
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="title">Book title *</label>
+        <input id="title" required maxlength="150" placeholder="e.g. Norwegian Wood">
+      </div>
+
+      <div class="field">
+        <label for="author">Author</label>
+        <input id="author" maxlength="100" placeholder="Author's name">
+      </div>
+
+      <div class="field">
+        <label for="status">Reading status</label>
+        <select id="status">
+          <option>Want to read</option>
+          <option>Currently reading</option>
+          <option>Finished</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="genre">Genre / category</label>
+        <input id="genre" maxlength="60" placeholder="e.g. Literary fiction">
+      </div>
+
+      <div class="field">
+        <label for="rating">Your rating</label>
+        <select id="rating">
+          <option value="0">Not rated</option>
+          <option value="1">★☆☆☆☆ — 1/5</option>
+          <option value="2">★★☆☆☆ — 2/5</option>
+          <option value="3">★★★☆☆ — 3/5</option>
+          <option value="4">★★★★☆ — 4/5</option>
+          <option value="5">★★★★★ — 5/5</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="date">Date finished / added</label>
+        <input id="date" type="date">
+      </div>
+
+      <div class="field full">
+        <label for="cover">Book cover image URL (optional)</label>
+        <input id="cover" type="url" placeholder="https://example.com/book-cover.jpg">
+      </div>
+
+      <div class="field full">
+        <label for="review">Your review / personal notes</label>
+        <textarea id="review" maxlength="5000" placeholder="What did this book make you feel? What did you love or dislike? Write your thoughts here..."></textarea>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn btn-light" onclick="closeForm()">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save book</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+const STORAGE_KEY = "theReadingRoomBooks_v1";
+
+let books = loadBooks();
+
+function loadBooks() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const parsed = saved ? JSON.parse(saved) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveBooks() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(books));
+  } catch (error) {
+    alert("Your browser could not save the collection. Please export a backup.");
+  }
+}
+
+function makeId() {
+  return Date.now().toString(36) +
+    Math.random().toString(36).slice(2, 8);
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, function (character) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[character];
+  });
+}
+
+function safeImageURL(value) {
+  try {
+    const url = new URL(value);
+    if (url.protocol === "https:" || url.protocol === "http:") {
+      return url.href;
+    }
+  } catch (error) {
+    return "";
+  }
+  return "";
+}
+
+function formatDate(value) {
+  if (!value) return "Date not added";
+
+  const parts = value.split("-");
+  if (parts.length !== 3) return escapeHTML(value);
+
+  return parts[2] + "/" + parts[1] + "/" + parts[0];
+}
+
+function openAddForm() {
+  document.getElementById("bookForm").reset();
+  document.getElementById("bookId").value = "";
+  document.getElementById("date").value =
+    new Date().toISOString().slice(0, 10);
+  document.getElementById("dialogTitle").textContent = "Add a new book";
+  document.getElementById("bookDialog").showModal();
+}
+
+function closeForm() {
+  document.getElementById("bookDialog").close();
+}
+
+function editBook(id) {
+  const book = books.find(item => item.id === id);
+  if (!book) return;
+
+  document.getElementById("bookId").value = book.id;
+  document.getElementById("title").value = book.title || "";
+  document.getElementById("author").value = book.author || "";
+  document.getElementById("status").value =
+    book.status || "Want to read";
+  document.getElementById("genre").value = book.genre || "";
+  document.getElementById("rating").value = String(book.rating || 0);
+  document.getElementById("date").value = book.date || "";
+  document.getElementById("cover").value = book.cover || "";
+  document.getElementById("review").value = book.review || "";
+
+  document.getElementById("dialogTitle").textContent = "Edit your book";
+  document.getElementById("bookDialog").showModal();
+}
+
+document.getElementById("bookForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const id = document.getElementById("bookId").value;
+  const existingBook = books.find(item => item.id === id);
+
+  const book = {
+    id: id || makeId(),
+    title: document.getElementById("title").value.trim(),
+    author: document.getElementById("author").value.trim(),
+    status: document.getElementById("status").value,
+    genre: document.getElementById("genre").value.trim(),
+    rating: Number(document.getElementById("rating").value),
+    date: document.getElementById("date").value,
+    cover: safeImageURL(document.getElementById("cover").value.trim()),
+    review: document.getElementById("review").value.trim(),
+    createdAt: existingBook ? existingBook.createdAt : Date.now()
+  };
+
+  if (!book.title) {
+    alert("Please enter the book title.");
+    return;
+  }
+
+  if (existingBook) {
+    books = books.map(item => item.id === id ? book : item);
+  } else {
+    books.unshift(book);
+  }
+
+  saveBooks();
+  closeForm();
+  renderBooks();
+});
+
+function deleteBook(id) {
+  const book = books.find(item => item.id === id);
+  if (!book) return;
+
+  const confirmed = confirm(
+    'Are you sure you want to remove "' + book.title + '" from your shelf?'
+  );
+
+  if (!confirmed) return;
+
+  books = books.filter(item => item.id !== id);
+  saveBooks();
+  renderBooks();
+}
+
+function statusClass(status) {
+  if (status === "Finished") return "finished";
+  if (status === "Currently reading") return "current";
+  return "want";
+}
+
+function makeStars(rating) {
+  const score = Number(rating) || 0;
+  if (score === 0) return "Not rated";
+  return "★".repeat(score) + "☆".repeat(5 - score);
+}
+
+function renderBooks() {
+  const grid = document.getElementById("bookGrid");
+  const search = document.getElementById("searchInput").value
+    .trim().toLowerCase();
+  const status = document.getElementById("statusFilter").value;
+  const sort = document.getElementById("sortSelect").value;
+
+  let filtered = books.filter(book => {
+    const searchable = [
+      book.title,
+      book.author,
+      book.genre,
+      book.review
+    ].join(" ").toLowerCase();
+
+    const matchesSearch = searchable.includes(search);
+    const matchesStatus = status === "all" || book.status === status;
+
+    return matchesSearch && matchesStatus;
+  });
+
+  if (sort === "title") {
+    filtered.sort((a, b) =>
+      (a.title || "").localeCompare(b.title || "")
+    );
+  } else if (sort === "rating") {
+    filtered.sort((a, b) =>
+      (Number(b.rating) || 0) - (Number(a.rating) || 0)
+    );
+  } else {
+    filtered.sort((a, b) =>
+      (Number(b.createdAt) || 0) - (Number(a.createdAt) || 0)
+    );
+  }
+
+  document.getElementById("totalBooks").textContent = books.length;
+
+  document.getElementById("finishedBooks").textContent =
+    books.filter(book => book.status === "Finished").length;
+
+  document.getElementById("currentBooks").textContent =
+    books.filter(book => book.status === "Currently reading").length;
+
+  const ratedBooks = books.filter(book => Number(book.rating) > 0);
+
+  const average = ratedBooks.length
+    ? ratedBooks.reduce((sum, book) => sum + Number(book.rating), 0) /
+      ratedBooks.length
+    : 0;
+
+  document.getElementById("averageRating").textContent =
+    average ? average.toFixed(1) + " ★" : "—";
+
+  document.getElementById("collectionCount").textContent =
+    filtered.length + (filtered.length === 1 ? " book shown" : " books shown");
+
+  if (filtered.length === 0) {
+    const hasBooks = books.length > 0;
+
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">${hasBooks ? "⌕" : "♡"}</div>
+        <h3>${hasBooks ? "No books found" : "Your shelf is waiting"}</h3>
+        <p>
+          ${hasBooks
+            ? "Try another search or change the filters."
+            : "Add your first book and begin building your own little literary world."}
+        </p>
+        ${hasBooks ? "" : '<button class="btn btn-primary" onclick="openAddForm()">Add your first book</button>'}
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(book => {
+    const coverURL = safeImageURL(book.cover || "");
+    const imageMarkup = coverURL
+      ? `<img src="${escapeHTML(coverURL)}" alt="Cover of ${escapeHTML(book.title)}" onerror="this.remove()">`
+      : "";
+
+    return `
+      <article class="book-card">
+        <div class="book-top">
+          <div class="cover">
+            ${imageMarkup}
+            <span class="cover-title">${escapeHTML(book.title)}</span>
+          </div>
+
+          <div class="book-info">
+            <h3>${escapeHTML(book.title)}</h3>
+            <div class="author">
+              ${escapeHTML(book.author || "Unknown author")}
+            </div>
+            <span class="status ${statusClass(book.status)}">
+              ${escapeHTML(book.status || "Want to read")}
+            </span>
+          </div>
+        </div>
+
+        <div class="book-details">
+          <div class="book-meta">
+            <span>${escapeHTML(formatDate(book.date))}</span>
+            <span class="rating" title="${Number(book.rating) || 0} out of 5">
+              ${makeStars(book.rating)}
+            </span>
+          </div>
+
+          ${book.genre
+            ? `<div class="genre">${escapeHTML(book.genre)}</div>`
+            : ""}
+
+          <div class="review">
+            ${escapeHTML(book.review || "No personal notes yet. Add a review whenever you feel like it.")}
+          </div>
+
+          <div class="card-actions">
+            <button class="btn btn-light" onclick="editBook('${book.id}')">Edit</button>
+            <button class="btn btn-light" onclick="deleteBook('${book.id}')">Remove</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function exportBooks() {
+  if (books.length === 0) {
+    alert("Your bookshelf is empty. Add a book before exporting a backup.");
+    return;
+  }
+
+  const data = JSON.stringify(books, null, 2);
+  const blob = new Blob([data], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "my-reading-room-backup.json";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  URL.revokeObjectURL(url);
+}
+
+renderBooks();
+</script>
+
+</body>
+</html>
